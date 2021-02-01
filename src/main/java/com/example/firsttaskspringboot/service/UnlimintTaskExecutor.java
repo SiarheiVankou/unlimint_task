@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -34,7 +35,11 @@ public class UnlimintTaskExecutor implements CommandLineRunner {
                     throw new FileParserNotFoundException("File parser is null");
                 }
 
-                fileParser.parse(fileName);
+                try {
+                    fileParser.parse(fileName);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             });
         }
     }

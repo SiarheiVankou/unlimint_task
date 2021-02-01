@@ -1,9 +1,10 @@
 package com.example.firsttaskspringboot.parser;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public interface FileParser {
 
-    void parse(String fileName);
+    void parse(String fileName) throws IOException;
+
     String supportExtension();
 }
